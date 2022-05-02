@@ -15,15 +15,15 @@ async function geojsonFetch() {
     map.on('load', function loadingData() {
         // add layer
         // add legend
-        map.addSource('us-covid-2020-rates', {
+        map.addSource('stateData', {
             type: 'geojson',
-            data: us-covid-2020-rates
+            data: stateData
         });
         
         map.addLayer({
-            'id': 'us-covid-rates-2020-layer',
+            'id': 'stateData-layer',
             'type': 'fill',
-            'source': 'us-covid-2020-rates',
+            'source': 'stateData',
             'paint': {
                 'fill-color': [
                     'step',

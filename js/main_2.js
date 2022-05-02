@@ -7,7 +7,7 @@ zoom: 3, // starting zoom
 center: [-100, 40] // starting center
 });
 
-const grades = [4, 5, 6],
+const grades = [500, 1000, 5000],
 colors = ['rgb(208,209,230)', 'rgb(103,169,207)', 'rgb(1,108,89)'],
 radii = [5, 15, 20];
 
@@ -34,24 +34,24 @@ map.on('load', () => { //simplifying the function statement: arrow with brackets
                     'stops': [
                         [{
                             zoom: 5,
-                            value: grades[0]
+                            value: grades[500]
                         }, radii[0]],
                         [{
                             zoom: 5,
-                            value: grades[1]
+                            value: grades[1000]
                         }, radii[1]],
                         [{
                             zoom: 5,
-                            value: grades[2]
+                            value: grades[5000]
                         }, radii[2]]
                     ]
                 },
                 'circle-color': {
                     'property': 'mag',
                     'stops': [
-                        [grades[0], colors[0]],
-                        [grades[1], colors[1]],
-                        [grades[2], colors[2]]
+                        [grades[500], colors[500]],
+                        [grades[1000], colors[1000]],
+                        [grades[5000], colors[5000]]
                     ]
                 },
                 'circle-stroke-color': 'white',
