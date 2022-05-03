@@ -9,12 +9,12 @@ This project build two thematic map that illustrate US COVID rates and case coun
 
 A choropleth map that displays the rate of covid cases at a county level in the United States.
 
-*photo*
+![Map 1](img/map_1.png)
 *link*
 
 ## Map 2: US COVID Cases in 2020
 
 A proportional map that displays the case count of COVID cases at a county level in the United States.
 
-*photo*
+![Map 2](img/map_2.png)
 *link*

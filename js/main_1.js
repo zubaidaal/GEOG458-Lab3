@@ -10,7 +10,7 @@ const map = new mapboxgl.Map({
 
 async function geojsonFetch() { 
     // other operations
-    let response = await fetch('../assets/us-covid-2020-rates.json');
+    let response = await fetch('assets/us-covid-2020-rates.json');
     let stateData = await response.json();
     map.on('load', function loadingData() {
         // add layer
@@ -27,7 +27,7 @@ async function geojsonFetch() {
             'paint': {
                 'fill-color': [
                     'step',
-                    ['get', 'density'],
+                    ['get', 'rates'],
                     '#FFEDA0',   // stop_output_0
                     10,          // stop_input_0
                     '#FED976',   // stop_output_1
@@ -57,17 +57,26 @@ const layers = [
     '0-9',
     '10-19',
     '20-49',
-    '50-100',
+    '50-99',
+    '100-199',
+    '200-499',
+    '500-999',
+    '1000 and more'
 ];
 const colors = [
     '#FFEDA070',
     '#FED97670',
     '#FEB24C70',
     '#FD8D3C70',
+    '#FC4E2A70',
+    '#E31A1C70',
+    '#BD002670',
+    '#80002670'
 ];
 
+
 const legend = document.getElementById('legend');
-legend.innerHTML = "<b>Percentage<br>(people/sq.mi.)</b><br><br>";
+legend.innerHTML = "<b>Rates<br>(people/sq.mi.)</b><br><br>";
 
 layers.forEach((layer, i) => {
     const color = colors[i];
@@ -88,7 +97,7 @@ map.on('mousemove', ({point}) => {
         layers: ['stateData-layer']
     });
     document.getElementById('text-description').innerHTML = state.length ?
-        `<h3>${state[0].properties.name}</h3><p><strong><em>${state[0].properties.density}</strong> people per square mile</em></p>` :
+        `<h3>${state[0].properties.county}</h3><p><strong><em>${state[0].properties.rates}</strong> people per square mile</em></p>` :
         `<p>Hover over a state!</p>`;
 });
 
