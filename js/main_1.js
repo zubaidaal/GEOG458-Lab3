@@ -78,6 +78,8 @@ const colors = [
 const legend = document.getElementById('legend');
 legend.innerHTML = "<b>Rates<br>(people/sq.mi.)</b><br><br>";
 
+
+
 layers.forEach((layer, i) => {
     const color = colors[i];
     const item = document.createElement('div');
@@ -92,6 +94,8 @@ layers.forEach((layer, i) => {
     legend.appendChild(item);
 });
 
+
+
 map.on('mousemove', ({point}) => {
     const state = map.queryRenderedFeatures(point, {
         layers: ['stateData-layer']
@@ -102,6 +106,6 @@ map.on('mousemove', ({point}) => {
 });
 
 const source =
-'<p style="text-align: right; font-size:10pt">Source: <a href="https://github.com/nytimes/covid-19-data/blob/43d32dde2f87bd4dafbb7d23f5d9e878124018b8/live/us-counties.csv">The New York Times</a></p>';
+'<p style="text-align: right; font-size:10pt"> Source: <a href="https://github.com/nytimes/covid-19-data/blob/43d32dde2f87bd4dafbb7d23f5d9e878124018b8/live/us-counties.csv">The New York Times</a></p>';
 
 legend.innerHTML = labels.join('') + source;
